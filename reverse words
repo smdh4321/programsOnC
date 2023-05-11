@@ -1,0 +1,51 @@
+//Write a program to reverse words
+
+Input Format
+
+how are you
+
+Output Format
+
+you are how
+
+Sample Input 0
+
+when are you coming
+Sample Output 0
+
+coming you are when
+
+
+int main()
+{
+    int i,j,len,startIndex,endIndex;
+    char str[100];
+    gets(str);
+    len=strlen(str);
+    for(int i=0;i<len;i++){
+        scanf("%c",&str[i]);
+    }
+   
+      endIndex=len-1;          
+      for(i=len-1;i>=0;i--)
+          {
+          if(str[i]==' ' || i==0)
+        {
+            if(i==0)
+            {
+                startIndex = 0;
+            }
+            else
+            {
+                startIndex=i+1;
+            }
+            for(j=startIndex;j<=endIndex;j++)
+            {
+                printf("%c",str[j]);
+            }
+            endIndex=i-1;
+            printf(" ");                
+        }
+    }
+    return 0;
+}
