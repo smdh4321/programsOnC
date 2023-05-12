@@ -1,0 +1,39 @@
+Write a program to Move 1 first then 0
+
+Input Format
+
+1010
+
+Output Format
+
+1100
+
+Sample Input 0
+
+110111
+Sample Output 0
+
+111110
+
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+
+int main() {
+    char str[100];
+    gets(str);
+    int zero=0,one=0;
+    for(int i=0;str[i]!='\0';i++){
+        if(str[i]=='0')
+            zero++;
+        else
+            one++;
+    }
+    for(int i=0;i<one;i++)
+        printf("1");
+    for(int i=0;i<zero;i++)
+        printf("0");
+        
+    return 0;
+}
