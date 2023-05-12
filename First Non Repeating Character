@@ -1,0 +1,44 @@
+Given a string, find the first non-repeating character in it. For example, if the input
+string is “rajendran”, then the output should be ‘j’ and if the input string is
+“vinoth”, then the output should be ‘v’.
+
+Input Format
+
+rajendran
+
+Output Format
+
+j
+
+Sample Input 0
+
+vinoth
+Sample Output 0
+
+v
+
+
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+int main(){
+    char c[100];
+    scanf("%s",c);
+    int flag=0;
+    int n=strlen(c);
+    for(int i=0;i<n;i++){
+        int ch=c[i];
+        for(int j=i+1;j<n;j++){
+            if(ch==c[j]){
+                flag=1;
+            }
+        }
+        if(flag==0){
+            printf("%c",ch);
+            break;
+        }
+        flag=0;
+    }
+    return 0;
+}
