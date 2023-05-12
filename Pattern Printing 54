@@ -1,0 +1,89 @@
+Print the following pattern
+
+Input Format
+
+Look at the sample input and output
+
+Constraints
+
+.Look at the sample input and output
+
+Output Format
+
+Look at the sample input and output
+
+Sample Input 0
+
+7
+Sample Output 0
+
+      1
+     1 1
+    1 2 1
+   1 3 3 1
+  1 4 6 4 1
+ 1 5 10 10 5 1
+1 6 15 20 15 6 1
+
+#include<stdio.h>
+
+int main() {
+   int m,i,j,h,g,k;
+   scanf("%d",&m);
+   int n=m+(m-1);
+   h=n/2,g=n/2;
+   int a[m][n];
+   for(i=0;i<m;i++)
+   {
+       for(j=0;j<n;j++)
+       {
+           a[i][j]=0;
+       }
+   }
+   for(i=0;i<m;i++)
+   {
+       for(j=0;j<n;j++)
+       {
+           if(j==g && j==h)
+           {
+             a[i][j]=1;
+             h--;
+             g++;
+             i++;
+             break;
+           }    
+       }
+     
+      for(j=0;j<n;j++)
+      {
+          if(j==h || j==g)
+            a[i][j]=1;
+          else
+            for(k=h+2;k<=g-2;k++)
+            {
+                a[i][k]=a[i-1][k-1]+a[i-1][k+1];
+               
+            }
+           
+      }
+      h--;
+       g++;
+       
+       
+   }
+   
+    for(i=0;i<m;i++)
+   {
+       for(j=0;j<n;j++)
+       {
+           if(a[i][j]==0)
+           {
+               printf(" ");
+           }
+           else
+            printf("%d",a[i][j]);
+       }
+       printf("\n");
+   }
+   
+}
