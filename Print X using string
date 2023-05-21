@@ -1,0 +1,53 @@
+Write a program to print the X to the given string
+
+Input Format
+
+Look at the sample test case
+
+Constraints
+
+Input should be a string
+
+Output Format
+
+Look at the sample test case
+
+Sample Input 0
+
+VENKAT
+Sample Output 0
+
+V    T
+ E  A
+  NK
+  NK
+ E  A
+V    T
+
+
+Source Code:
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    char str[50];
+    int len, i, j;
+    scanf("%s", str);
+    len = strlen(str);
+
+    for(i=0; i<len; i++) {
+        for(j=0; j<len; j++) {
+            if(i==j ) {
+                printf("%c", str[i]);
+            } 
+            else if(i+j==len-1){
+                printf("%c",str[j]);
+            }
+            else {
+                printf(" ");
+            }
+        }
+        printf("\n");
+    }
+    return 0;
+}
