@@ -1,0 +1,63 @@
+Need to write a program to remove duplicate elements from given array.
+
+Input Format
+
+8
+3 2 4 2 7 6 3 8
+
+Constraints
+
+5<=n<=20
+
+Output Format
+
+4 7 6 8
+
+Sample Input 0
+
+8
+3 2 4 2 7 6 3 8
+Sample Output 0
+
+4 7 6 8
+
+#include <stdio.h>
+
+int main() {
+    int n, arr[20], i, j, k, flag;
+    scanf("%d", &n);
+
+    // read the array elements
+    for (i = 0; i < n; i++) {
+        scanf("%d", &arr[i]);
+    }
+
+    // remove duplicate elements from the array
+    for (i = 0; i < n; i++) {
+        flag = 0;
+        for (j = i + 1; j < n; j++) {
+            if (arr[i] == arr[j]) {
+                flag = 1;
+                for (k = j; k < n; k++) {
+                    arr[k] = arr[k + 1];
+                }
+                n--;
+                j--;
+            }
+        }
+        if (flag == 1) {
+            for (k = i; k < n; k++) {
+                arr[k] = arr[k + 1];
+            }
+            n--;
+            i--;
+        }
+    }
+
+    // print the array without duplicates
+    for (i = 0; i < n; i++) {
+        printf("%d ", arr[i]);
+    }
+
+    return 0;
+}
