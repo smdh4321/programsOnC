@@ -1,0 +1,62 @@
+Write a program to check the given number is Strong number or not
+
+Input Format
+
+145
+
+Constraints
+
+Input should be a number
+
+Output Format
+
+Given number is a strong number
+
+Sample Input 0
+
+144
+Sample Output 0
+
+Given number is not a strong number
+Explanation 0
+
+Consider if the given number is 145
+
+1!+4!+5! = 1+24+120 = 145
+
+Since the given number and the processed results are same then the 145 is Strong number.
+
+But if the given number is 144
+1!+4!+4! = 1+24+24 = 49
+Since the given number and the processed results are not same then the 144 is not Strong number.
+
+
+
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+
+int main() {
+    int n,i;
+    int fact,rem;
+    scanf("%d",&n);
+    int sum=0,temp=n;
+    while(n){
+        i=1;fact=1;
+        rem=n%10;
+        while(i<=rem){
+            fact=fact*i;
+            i++;
+        }
+        sum+=fact;
+        n/=10;
+    }
+    if(sum==temp){
+        printf("Given number is a strong number");
+    }else{
+        printf("Given number is not a strong number");
+    }
+    
+    return 0;
+}
