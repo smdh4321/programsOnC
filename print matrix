@@ -1,0 +1,77 @@
+You’re given an even number n.
+If n=4, you have to print the following pattern:
+
+Input Format
+
+4
+
+Constraints
+
+Even numbers
+
+Output Format
+
+4444
+4334
+4334
+4444
+
+Sample Input 0
+
+6
+Sample Output 0
+
+666666
+655556
+654456
+654456
+655556
+666666
+
+
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+
+
+
+void pattern(int s)
+{
+    int m=s,n=s,rs=0,cs=0,i,j,a[s][s],k=s;
+   
+    while(rs<m && cs<n)
+    {
+        for(i=rs;i<n;i++)
+         a[rs][i]=s;
+        rs++;  
+        for(i=rs;i<m;i++)
+         a[i][n-1]=s;
+        n--;  
+        for(i=n-1;i>=cs;i--)
+          a[m-1][i]=s;
+        m--;
+        for(i=m-1;i>=rs;i--)
+          a[i][cs]=s;
+        cs++;
+        s--;    
+   
+    }
+    for(i=0;i<k;i++)
+   {
+       for(j=0;j<k;j++)
+       {
+           printf("%d",a[i][j]);
+       }
+       printf("\n");
+   }
+
+}
+int main() {
+
+   int s;
+   scanf("%d",&s);
+   pattern(s);
+    return 0;
+   
+}
