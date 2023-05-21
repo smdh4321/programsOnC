@@ -1,0 +1,77 @@
+Write a program to check the given number is Automorphic number or not
+
+Input Format
+
+5
+
+Constraints
+
+Input should be the number.
+
+Output Format
+
+Given number is Automorphic number
+
+Sample Input 0
+
+25
+Sample Output 0
+
+Given number is Automorphic number
+Explanation 0
+
+Consider the given number is 25
+25*25 = 625
+Here the given number is equal to the last 2 digits of the processed result, then the given number is Automorphic number
+
+Consider if the given number is 24
+24*24 = 576
+
+Here the given number is not equal to the last 2 digits of the processed result, then the given number is not Automorphic number
+
+Sample Input 1
+
+24
+Sample Output 1
+
+Given number is not an Automorphic number
+Sample Input 2
+
+7
+Sample Output 2
+
+Given number is not an Automorphic number
+Sample Input 3
+
+111
+Sample Output 3
+
+Given number is not an Automorphic number
+
+
+
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+
+int main() {
+    int n,count=0,last,temp;
+    scanf("%d",&n);
+    temp=n;
+    int square=n*n;
+    while(n!=0){
+        count++;
+        n/=10;
+    }
+    int digits=count;
+    int x=pow(10,digits);
+    last=square%x;
+    if(last==temp){
+        printf("Given number is Automorphic number");
+    }else{
+        printf("Given number is not an Automorphic number");
+    }
+    
+    return 0;
+}
