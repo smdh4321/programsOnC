@@ -1,0 +1,63 @@
+Write a program to Remove unbalanced parentheses in a given expression.
+
+Input Format
+
+((abc)((de))
+
+Constraints
+
+Input should be an expression
+
+Output Format
+
+((abc)(de))
+
+Sample Input 0
+
+((xyz))(mno))
+Sample Output 0
+
+((xyz)(mno))
+
+
+#include<stdio.h>
+int main() {
+
+    /* Enter your code here. Read input from STDIN. Print output to STDOUT */
+    char s[100];
+    gets(s);
+    int i=1,j,l=strlen(s),c=0,index;
+        for(i=1;i<l-1;)
+        {
+            if(s[i]=='(')
+            {
+               for(j=i+1;j<l-1;j++)
+               {
+                   if(s[j]==')')
+                       break;
+                   else if(s[j]=='(')
+                   {
+                       index=j;
+                       c++;
+                       break;
+                   }
+                }
+            }
+            else{
+               index=j;
+               c++;
+               break;
+            }
+            i=j+1;
+            if(c!=0)
+            break;
+        }
+    for(i=0;i<l;i++)
+    {
+        if(i!=index)
+        {
+            printf("%c",s[i]);
+        }
+    }
+    return 0;
+}
