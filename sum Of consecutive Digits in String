@@ -1,0 +1,36 @@
+sample input:
+209wer10ew1
+output:
+220
+description of program:
+for input 209wer10ew1
+the output should be 220 such that 209+10+1=220
+
+
+programm:
+#include <stdio.h>
+#include <ctype.h>
+
+int main() {
+    char str[100]; 
+    int sum = 0;
+    int current_number = 0;
+    printf("Enter a string: ");
+    scanf("%s", str);
+    
+    int i = 0;
+    while (str[i] != '\0') {
+        if (isdigit(str[i])) {
+            current_number = current_number * 10 + (str[i] - '0');
+        } else {
+            sum += current_number;
+            current_number = 0; 
+        }
+        i++;
+    }
+    
+    sum += current_number;
+    printf("Sum of consecutive digits in the string: %d\n", sum);
+
+    return 0;
+}
