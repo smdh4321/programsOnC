@@ -1,0 +1,27 @@
+write a c program for this pattern
+Input : n=5
+Output:
+1
+2 6
+3 7 10
+4 8 11 13
+5 9 12 14 15
+
+#include <stdio.h>
+
+int main() {
+    int n=5;
+    int num = 1;
+    int row, col;
+    for (row = 1; row <= n; row++) {
+        int currentNum = num;
+        for (col = 1; col <= row; col++) {
+            printf("%d ", currentNum);
+            currentNum += (n - col);
+        }
+        printf("\n");
+        num++;
+    }
+
+    return 0;
+}
