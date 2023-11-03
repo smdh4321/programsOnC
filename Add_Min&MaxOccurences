@@ -1,0 +1,84 @@
+Write a program to add minimum and maximum occurrences.
+
+Input Format
+
+10
+4 4 4 6 4 3 6 4 3 6
+
+Constraints
+
+4<=n<=15
+1<=E<=10
+
+Output Format
+
+7
+
+Sample Input 0
+
+8
+2 3 2 3 5 2 6 5
+Sample Output 0
+
+4
+Explanation 0
+
+Here Element 2 occurs 3 times which is the highest occurances, 6 occurs once which is the lowest occurances. So the addition of 3+1 = 4
+
+//code
+
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+
+int maximum(int a[], int n) {
+    int max = a[0];
+    for (int i = 0; i < n; i++) {
+        if (max < a[i])
+            max = a[i];
+    }
+    return max;
+}
+
+int minimum(int a[], int n) {
+   int min=0;
+    for (int i = 0; i < n; i++) {
+        if(a[i] !=0)
+            {
+                min=a[i];
+                break;
+            }
+    }
+    for (int i = 0; i < n; i++) {
+        if (min > a[i] && a[i]!=0)
+            min = a[i];
+    }
+    return min;
+}
+
+int main() {
+    int n;
+    scanf("%d", &n);
+    int a[n];
+    for (int i = 0; i < n; i++)
+        scanf("%d", &a[i]);
+
+    int max = maximum(a, n);
+    
+    int range = max + 1;
+    int b[range];
+    for (int i = 0; i < range; i++)
+        b[i] = 0;
+    
+    for (int i = 0; i < n; i++) {
+        int k = a[i];
+        b[k]++;
+    }
+    
+    int high = maximum(b, range);
+    int low = minimum(b, range);
+    printf("%d", high + low);
+    
+    return 0;
+}
